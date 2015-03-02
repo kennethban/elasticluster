@@ -242,7 +242,7 @@ c = get_config()
 
 # The IP address for registration.  This is generally either '127.0.0.1' for
 # loopback only or '*' for all interfaces. [default: '127.0.0.1']
-c.HubFactory.ip = '{{ hostvars[groups['ipython_controller'][0]].ansible_default_ipv4.address }}'
+c.HubFactory.ip = '*'
 
 # Client/Engine Port pair for MUX queue
 # c.HubFactory.mux = None

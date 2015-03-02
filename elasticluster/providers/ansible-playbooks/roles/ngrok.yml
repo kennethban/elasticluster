@@ -1,0 +1,11 @@
+---
+- name: Reverse Proxy Setup
+  hosts: ganglia_master
+  tasks: 
+
+    - name: Deploy ngrok configuration file
+      action: template src=ngrok/templates/ngrok.yml.j2 dest=/etc/ngrok/ngrok.yml
+
+    - name: start ngrok reverse proxy
+      shell: nohup /usr/local/bin/ngrok -log=stdout -config=/etc/ngrok/ngrok.yml start client ipython > /dev/null 2>&1 &
+

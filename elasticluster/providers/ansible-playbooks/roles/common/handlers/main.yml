@@ -28,3 +28,4 @@
 
 - name: kill-HUP sshd
   shell: pkill -HUP sbin/sshd
+

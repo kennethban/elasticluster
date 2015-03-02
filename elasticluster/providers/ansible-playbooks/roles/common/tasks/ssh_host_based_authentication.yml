@@ -28,6 +28,10 @@
 
 - name: Setup SSH host based authentication (client configuration file; enable `HostbasedAuthentication` option)
   action: lineinfile dest=/etc/ssh/ssh_config regexp='HostbasedAuthentication.*' line="HostbasedAuthentication yes"
+  notify: restart sshd
 
 - name: Setup SSH host based authentication (client configuration file; enable `EnableSSHKeysign` option)
   action: lineinfile dest=/etc/ssh/ssh_config regexp='EnableSSHKeysign.*' line="EnableSSHKeysign yes"
+  notify: restart sshd
+
+

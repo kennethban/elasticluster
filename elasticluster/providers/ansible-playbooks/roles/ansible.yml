@@ -1,0 +1,6 @@
+---
+- name: Set /etc/ansible/hosts
+  hosts: ganglia_master
+  
+  tasks:
+     - action: template dest=/etc/ansible/hosts src=ansible/templates/hosts.j2 owner=root group=root

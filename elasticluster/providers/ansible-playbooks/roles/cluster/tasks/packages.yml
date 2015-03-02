@@ -8,6 +8,7 @@
     - hdf5-openmpi
     - hdf5
     - netcdf-devel
+    - blacs-openmpi
     - blas-devel
     - atlas-devel
   when: is_centos

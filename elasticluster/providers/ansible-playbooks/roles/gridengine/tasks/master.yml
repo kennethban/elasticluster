@@ -65,7 +65,7 @@
     - sge
 
 - name: create default queue
-  action: shell bash -lc 'qconf -Aq /root/all.q.conf'
+  action: shell bash -lc 'qconf -Mq /root/all.q.conf'
   ignore_errors: yes
   tags:
     - sge

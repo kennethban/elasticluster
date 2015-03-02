@@ -1,0 +1,29 @@
+---
+- name: Restart SSHD
+  hosts: all
+  tasks: 
+
+    - name: force sshd restart workaround
+      shell: service sshd restart
+
+- name: Restart ganglia master
+  hosts: ganglia_master
+  tasks:
+    -  pause: seconds=2
+    -  shell: service gmond restart
+    -  pause: seconds=2
+    -  shell: service gmetad restart
+
+- name: Restart ganglia clients
+  hosts: ganglia_monitor
+  tasks:
+    - name: restart gmond
+      shell: service gmond restart
+
+#- name: Restart Infiniband interface
+#  hosts: all
+#  tasks:
+#    - shell: /etc/init.d/openibd restart
+#    - shell: ifdown ib0 && ifup ib0
+
+
